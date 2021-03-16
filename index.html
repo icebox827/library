@@ -12,6 +12,21 @@
 
 <body>
 
+  <h2>HTML Forms</h2>
+
+  <form id = "input_book" action="/index" method="post">
+    <label for="author">Author:</label><br>
+    <input type="text" id="author" name="author" value=""><br>
+    <label for="title">Title</label><br>
+    <input type="text" id="title" name="title" value=""><br><br>
+    <label for="pages">number of pages</label><br>
+    <input type="number" id="pages" name="pages" value=""><br><br>
+    <label for="Read">did you readed?</label><br>
+    <input type="text" id="pages" name="pages" value="No"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
+  
+  <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
   <!-- JS Scripts -->
   <script src="assets/script/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
