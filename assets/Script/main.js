@@ -8,18 +8,13 @@ function Book(title, author, pages, read = false){
 }
 
 function addBookToLibrary(myLibrary){
-  // let bookName = prompt ("Type book name") 
-  // let bookTitle = prompt("Type book title")
-  // let bookPages = prompt ("number of pages")
-  // let bookRead = prompt ("its reade 1 for true")
-
   let form = document.getElementById('input_book');
    form.addEventListener('submit', (event) => {
   let bookName = form.elements[0];
-let bookTitle = form.elements[1];
-let bookPages = form.elements[2];
-let bookRead = form.elements[3];
-//     // handle the form data
+  let bookTitle = form.elements[1];
+  let bookPages = form.elements[2];
+  let bookRead = form.elements[3];
+
  })
 
   if (bookRead !== 'No'){
