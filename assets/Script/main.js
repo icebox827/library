@@ -1,7 +1,7 @@
 // let myLibrary = [{"author":"Gustavo","title":"My book","pages":"994","read":false}, 
 // {"author":"Denis","title":"His book","pages":"123","read":false}]
 
-function Book(title, author, pages, read = "Unread") {
+function Book(title, author, pages, read = "Not read") {
   this.author = author;
   this.title = title;
   this.pages = pages;
@@ -9,7 +9,7 @@ function Book(title, author, pages, read = "Unread") {
 }
 
 function storageMyLibrary(myLibrary){
-  alert(JSON.stringify(myLibrary))
+  //alert(JSON.stringify(myLibrary))
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
 }
 
@@ -20,7 +20,7 @@ function reload() {
 function createNewBook(){
   let myLibrary = JSON.parse(localStorage.getItem("myLibrary"))
   
-  if (myLibrary !== null){
+  if (myLibrary === null){
     myLibrary = []
   }
   
@@ -34,11 +34,17 @@ function createNewBook(){
       
   // } else {
   const book3 = new Book(bookAuthor, bookTitle, bookPages)
-  console.log(myLibrary)
+  
   myLibrary.push(book3)
   
   storageMyLibrary(myLibrary)
-  alert(storageMyLibrary(JSON.stringify(myLibrary)))
+  //alert(storageMyLibrary(JSON.stringify(myLibrary)))
+}
+
+function clearInputField() {
+  document.getElementById('author').value = '';
+  document.getElementById('title').value = '';
+  document.getElementById('pages').value = '';
 }
 
 
@@ -53,32 +59,42 @@ function displayBook() {
   for(let i=0; i < myLibrary.length; i++) {
      console.log(i)
     if (myLibrary[i].author === "" ){
-      
     } else {
-
     const card = document.createElement("card");
     const author = document.createElement("div");
     const title = document.createElement("div");
     const pages = document.createElement("div");
     const read = document.createElement("button");
     const removeButton = document.createElement('button')
-    removeButton.onclick = function()
-    {
+
+    read.onclick = function toggleContent() {
+      const read = document.getElementById(this.id);
+      id = this.id.slice(10)
+      let read_status = myLibrary[id].read
+      if(read_status === "Not read") {
+        alert('You have just read that book');
+        myLibrary[id].read = 'read!';
+      }else {
+        alert('You have not read that book');
+        myLibrary[id].read = 'Not read';
+      }
+      storageMyLibrary(myLibrary)
+      reload()
+    }
+
+    removeButton.onclick = function() {
       alert('You are removing a book form your library');
       remove(this.id)
       alert("Button clicked, id "+this.id+", text"+this.innerHTML);
-       
     };
     
-
     card.className = "card"
     author.className = "card-author"
     title.className = "card-title"
     pages.className = "card-pages"
     read.className = "card-read"
+    read.id = `readButton${i}`;
     removeButton.id = `remove${i}`
-
-    
 
     card.setAttribute("id", `card${i} `)
 
@@ -96,30 +112,19 @@ function displayBook() {
     read.innerHTML = myLibrary[i].read;
    
     removeButton.innerHTML = "Remove"
-
-    
-    // image.src = "./assets/img/library_of_alexandria.jpeg"
-    // image.setAttribute("alt", "Image from assets")
     }
+    
   }
+  
   }
 
 
 function remove(id){
-  let myLibrary = JSON.parse(localStorage.getItem("myLibrary"))
-  id = id.slice(6)
-  for(let i=0; i<localStorage.length; i++) {
-    let key = localStorage.key(i);
-    alert(`${key}: ${localStorage.getItem(key)}`);
+  id=id.slice(6)
+  let myLibrary = JSON.parse(localStorage.getItem("myLibrary")) 
+  myLibrary.splice(id,1)
+  // console.log(myLibrary)
+  storageMyLibrary(myLibrary)
+  reload()
   }
-    }
-  
-
-
-function changeStatus(book){
-  myLibrary[book].read !== "Unread" ? myLibrary[book].read == "Read" : myLibrary[book].read == false
-  button.addEventListener ("click", function() {
-    alert("did something");
-  });
-}
 
