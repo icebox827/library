@@ -51,6 +51,7 @@ function displayBook() {
     read.innerHTML = myLibrary[i].read;
     
 
+    
     // image.src = "./assets/img/library_of_alexandria.jpeg"
     // image.setAttribute("alt", "Image from assets")
   }
