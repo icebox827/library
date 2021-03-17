@@ -25,11 +25,11 @@ input {
   border: 2px solid;
 }
 
-.card {
-  border: 2px solid;
-  border-radius: 12px;
+table { border-collapse: collapse; }
+
+table tr td {
+  border: 1px solid #000;
+  padding: 10px;
 }
 
-ul li {
-  list-style-type: none;
-}
+table tr:nth-child(odd) { background: #87aff8; }
