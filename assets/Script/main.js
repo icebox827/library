@@ -22,7 +22,8 @@ function createNewBook(){
 
   myLibrary.push(book)
   console.log(JSON.stringify(myLibrary))
- text = document.getElementById("storage")
+ text = document.createElement("p")
+ text.setAttribute("id", "storage")
  text.innerHTML = JSON.stringify(myLibrary)
  document.body.appendChild(text)
 }
@@ -38,23 +39,6 @@ function displayBook(myLibrary) {
   }
 }
 
-
-
-function addBookToLibrary(book) {
-  let form = document.getElementById('input_book');
-  form.addEventListener('submit', (event) => {
-  let bookName = form.elements[0];
-  let bookTitle = form.elements[1];
-  let bookPages = form.elements[2];
-  let bookRead = form.elements[3];
-    })
-     if (bookRead !== 'No'){
-     read = true
-    } 
-
-  const newbook = new Book(author, title, pages, read)
-  myLibrary.push(newbook)
-}
 
 function displayBook(book) {
   for(i = 0; i < myLibrary.length; i++) {
