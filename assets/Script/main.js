@@ -41,9 +41,7 @@ function clearInputField () {
 function displayBook () {
   let myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
 
-  console.log(myLibrary)
   for (let i = 0; i < myLibrary.length; i++) {
-    console.log(i)
     if (myLibrary[i].author === '') {
     } else {
       const card = document.createElement('card')
@@ -105,7 +103,6 @@ function remove (id) {
   id = id.slice(6)
   let myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
   myLibrary.splice(id, 1)
-  // console.log(myLibrary)
   storageMyLibrary(myLibrary)
   reload()
 }
