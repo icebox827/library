@@ -1,108 +1,103 @@
-function Book (title, author, pages, read = 'Not read') {
-  this.author = author
-  this.title = title
-  this.pages = pages
-  this.read = read
+// const { get } = require("node:http");
+
+const btn = document.getElementById('submit_btn');
+
+
+/* jshint unused:true */
+function Book(title, author, pages, read = 'Not read') {
+  this.author = author;
+  this.title = title;
+  this.pages = pages;
+  this.read = read;
 }
 
-function storageMyLibrary (myLibrary) {
-  localStorage.setItem('myLibrary', JSON.stringify(myLibrary))
+function storageMyLibrary(myLibrary) {
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
 
-function reload () {
-  reload = location.reload()
+function reloadPage() {
+  window.location.reload();
 }
 
-function createNewBook () {
-  let myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
+btn.addEventListener('click', () => {
+  let myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
 
   if (myLibrary === null) {
-    myLibrary = []
+    myLibrary = [];
   }
 
-  let form = document.getElementById('input_book')
-  let bookAuthor = form.elements[1].value
-  let bookTitle = form.elements[0].value
-  let bookPages = form.elements[2].value
+  const form = document.getElementById('input_book');
+  const bookAuthor = form.elements[1].value;
+  const bookTitle = form.elements[0].value;
+  const bookPages = form.elements[2].value;
 
-  const book3 = new Book(bookAuthor, bookTitle, bookPages)
+  const book3 = new Book(bookAuthor, bookTitle, bookPages);
 
-  myLibrary.push(book3)
+  myLibrary.push(book3);
 
-  storageMyLibrary(myLibrary)
+  storageMyLibrary(myLibrary);
+  reloadPage();
+});
+
+
+function remove(id) {
+  id = id.slice(6);
+  const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+  myLibrary.splice(id, 1);
+  storageMyLibrary(myLibrary);
+  reloadPage();
 }
 
-function clearInputField () {
-  document.getElementById('author').value = ''
-  document.getElementById('title').value = ''
-  document.getElementById('pages').value = ''
-}
+window.addEventListener('load', () => {
+  const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+  for (let i = 0; i < myLibrary.length; i += 1) {
+    if (myLibrary[i].author !== '') {
+      const card = document.createElement('card');
+      const author = document.createElement('div');
+      const title = document.createElement('div');
+      const pages = document.createElement('div');
+      const read = document.createElement('button');
+      const removeButton = document.createElement('button');
 
-function displayBook () {
-  let myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
-
-  for (let i = 0; i < myLibrary.length; i++) {
-    if (myLibrary[i].author === '') {
-    } else {
-      const card = document.createElement('card')
-      const author = document.createElement('div')
-      const title = document.createElement('div')
-      const pages = document.createElement('div')
-      const read = document.createElement('button')
-      const removeButton = document.createElement('button')
-
-      read.onclick = function toggleContent () {
-        const read = document.getElementById(this.id)
-        id = this.id.slice(10)
-        let read_status = myLibrary[id].read
-        if (read_status === 'Not read') {
-          alert('You have just read that book')
-          myLibrary[id].read = 'read!'
+      read.onclick = function toggleContent() {
+        const id = this.id.slice(10);
+        const readStatus = myLibrary[id].read;
+        if (readStatus === 'Not read') {
+          myLibrary[id].read = 'read!';
         } else {
-          alert('You have not read that book')
-          myLibrary[id].read = 'Not read'
+          myLibrary[id].read = 'Not read';
         }
-        storageMyLibrary(myLibrary)
-        reload()
-      }
+        storageMyLibrary(myLibrary);
+        reloadPage();
+      };
 
-      removeButton.onclick = function () {
-        alert('You are removing a book form your library')
-        remove(this.id)
-        alert('Button clicked, id ' + this.id + ', text' + this.innerHTML)
-      }
+      removeButton.onclick = function toRemove() {
+        remove(this.id);
+      };
 
-      card.className = 'card'
-      author.className = 'card-author'
-      title.className = 'card-title'
-      pages.className = 'card-pages'
-      read.className = 'card-read'
-      read.id = `readButton${i}`
-      removeButton.id = `remove${i}`
+      card.className = 'card';
+      author.className = 'card-author';
+      title.className = 'card-title';
+      pages.className = 'card-pages';
+      read.className = 'card-read';
+      read.id = `readButton${i}`;
+      removeButton.id = `remove${i}`;
 
-      card.setAttribute('id', `card${i} `)
+      card.setAttribute('id', `card${i} `);
 
-      document.getElementById('card-container').appendChild(card)
-      document.getElementById(`card${i} `).appendChild(author)
-      document.getElementById(`card${i} `).appendChild(title)
-      document.getElementById(`card${i} `).appendChild(pages)
-      document.getElementById(`card${i} `).appendChild(read)
-      document.getElementById(`card${i} `).appendChild(removeButton)
+      document.getElementById('card-container').appendChild(card);
+      document.getElementById(`card${i} `).appendChild(author);
+      document.getElementById(`card${i} `).appendChild(title);
+      document.getElementById(`card${i} `).appendChild(pages);
+      document.getElementById(`card${i} `).appendChild(read);
+      document.getElementById(`card${i} `).appendChild(removeButton);
 
-      author.innerHTML = myLibrary[i].author
-      title.innerHTML = myLibrary[i].title
-      pages.innerHTML = myLibrary[i].pages
-      read.innerHTML = myLibrary[i].read
+      author.innerHTML = myLibrary[i].author;
+      title.innerHTML = myLibrary[i].title;
+      pages.innerHTML = myLibrary[i].pages;
+      read.innerHTML = myLibrary[i].read;
 
-      removeButton.innerHTML = 'Remove'
+      removeButton.innerHTML = 'Remove';
     }
   }
-}
-
-function remove (id) {
-  id = id.slice(6)
-  let myLibrary = JSON.parse(localStorage.getItem('myLibrary'))
-  myLibrary.splice(id, 1)
-  storageMyLibrary(myLibrary)
-  reload()
-}
+});
