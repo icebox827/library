@@ -13,8 +13,8 @@
 <body>
 
   <h2>HTML Forms</h2>
-
-  <form id = "input_book" action="/index" method="post">
+<div id="storage"></div>
+  <form id = "input_book" method="post">
     <label for="author">Author:</label><br>
     <input type="text" id="author" name="author" value=""><br>
     <label for="title">Title</label><br>
@@ -23,12 +23,12 @@
     <input type="number" id="pages" name="pages" value=""><br><br>
     <label for="Read">did you readed?</label><br>
     <input type="text" id="pages" name="pages" value="No"><br><br>
-    <input type="submit" value="Submit">
+    <input type="button" value="Submit" onclick="createNewBook()">
   </form> 
   
   <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
   <!-- JS Scripts -->
-  <script src="assets/script/main.js"></script>
+  <script src="assets/Script/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
   </script>

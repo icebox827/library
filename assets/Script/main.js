@@ -1,4 +1,3 @@
-let myLibrary=[];
 
 function Book(title, author, pages, read = false){
   this.author=author;
@@ -7,29 +6,27 @@ function Book(title, author, pages, read = false){
   this.read = read;
 }
 
-function addBookToLibrary(myLibrary){
-  // let bookName = prompt ("Type book name") 
-  // let bookTitle = prompt("Type book title")
-  // let bookPages = prompt ("number of pages")
-  // let bookRead = prompt ("its reade 1 for true")
 
+
+function createNewBook(){
+  
+  let myLibrary = [{"author":"Gustavo","title":"My book","pages":"994","read":false}, 
+  {"author":"Denis","title":"His book","pages":"123","read":false}]
+  
   let form = document.getElementById('input_book');
-   form.addEventListener('submit', (event) => {
-  let bookName = form.elements[0];
-let bookTitle = form.elements[1];
-let bookPages = form.elements[2];
-let bookRead = form.elements[3];
-//     // handle the form data
- })
+  let bookAuthor = form.elements[0].value;
+  let bookTitle = form.elements[1].value;
+  let bookPages = form.elements[2].value;
 
-  if (bookRead !== 'No'){
-    read = true
-  } 
+  const book = new Book(bookAuthor, bookTitle, bookPages)
 
-  book = new Book(bookName, bookTitle, bookPages, read)
   myLibrary.push(book)
-  return myLibrary
+  console.log(JSON.stringify(myLibrary))
+ text = document.getElementById("storage")
+ text.innerHTML = JSON.stringify(myLibrary)
+ document.body.appendChild(text)
 }
+
 
 function displayBook(myLibrary) {
   for (let i = 0; i < myLibrary.length; i++) {
@@ -41,5 +38,5 @@ function displayBook(myLibrary) {
   }
 }
 
-library = addBookToLibrary(myLibrary)
-show = displayBook(myLibrary)
+
+
