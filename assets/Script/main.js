@@ -1,9 +1,6 @@
-// const { get } = require("node:http");
-
 const btn = document.getElementById('submit_btn');
 
 
-/* jshint unused:true */
 function Book(title, author, pages, read = 'Not read') {
   this.author = author;
   this.title = title;
