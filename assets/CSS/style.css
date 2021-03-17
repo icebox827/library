@@ -50,6 +50,7 @@ input {
 
 .card-read {
   color: blanchedalmond;
+  margin: 5px;
 }
 
 #card-container a {

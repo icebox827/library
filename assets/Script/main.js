@@ -1,7 +1,7 @@
 let myLibrary = [{"author":"Gustavo","title":"My book","pages":"994","read":false}, 
 {"author":"Denis","title":"His book","pages":"123","read":false}]
 
-function Book(title, author, pages, read = false) {
+function Book(title, author, pages, read = "Unread") {
   this.author = author;
   this.title = title;
   this.pages = pages;
@@ -69,5 +69,9 @@ function displayBook() {
 }
 
 function changeStatus(book){
-  myLibrary[book].read !== false ? myLibrary[book].read == true : myLibrary[book].read == false
+  myLibrary[book].read !== "Unread" ? myLibrary[book].read == "Read" : myLibrary[book].read == false
+  button.addEventListener ("click", function() {
+    alert("did something");
+  });
 }
+
