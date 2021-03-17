@@ -22,21 +22,10 @@ function createNewBook(){
 
   myLibrary.push(book)
   console.log(JSON.stringify(myLibrary))
- text = document.createElement("p")
- text.setAttribute("id", "storage")
- text.innerHTML = JSON.stringify(myLibrary)
- document.body.appendChild(text)
-}
-
-
-function displayBook(myLibrary) {
-  for (let i = 0; i < myLibrary.length; i++) {
-    // console.log(myLibrary[i])  
-    card.id = bookAuthor
-    card.text = bookTitle
-    card.body = bookPages
-    card.text = bookReads
-  }
+  text = document.createElement("p")
+  text.setAttribute("id", "storage")
+  text.innerHTML = JSON.stringify(myLibrary)
+  document.body.appendChild(text)
 }
 
 
