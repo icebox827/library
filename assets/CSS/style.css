@@ -50,7 +50,7 @@ input {
 
 .card-read {
   color: blanchedalmond;
-  margin: 5px;
+  background-color: blue;
 }
 
 #card-container a {
@@ -59,8 +59,10 @@ input {
 
 button {
   width: 45%;
-  background-color: blue;
+  background-color: red;
   border: none;
+  color: blanchedalmond;
+  margin: 5px;
 }
 
 button:hover {
