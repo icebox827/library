@@ -10,16 +10,14 @@ function Book(title, author, pages, read = false) {
 function addBookToLibrary(book) {
   let form = document.getElementById('input_book');
   form.addEventListener('submit', (event) => {
-//   let bookName = form.elements[0];
-//   let bookTitle = form.elements[1];
-//   let bookPages = form.elements[2];
-//   let bookRead = form.elements[3];
-
-//  })
-
-//   if (bookRead !== 'No'){
-//     read = true
-//   } 
+  let bookName = form.elements[0];
+  let bookTitle = form.elements[1];
+  let bookPages = form.elements[2];
+  let bookRead = form.elements[3];
+    })
+     if (bookRead !== 'No'){
+     read = true
+    } 
 
   const newbook = new Book(author, title, pages, read)
   myLibrary.push(newbook)
