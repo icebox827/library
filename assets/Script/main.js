@@ -8,8 +8,8 @@ function Book(title, author, pages, read = false) {
 }
 
 function addBookToLibrary(book) {
-//   let form = document.getElementById('input_book');
-//    form.addEventListener('submit', (event) => {
+  let form = document.getElementById('input_book');
+  form.addEventListener('submit', (event) => {
 //   let bookName = form.elements[0];
 //   let bookTitle = form.elements[1];
 //   let bookPages = form.elements[2];
@@ -26,34 +26,20 @@ function addBookToLibrary(book) {
 }
 
 function displayBook(book) {
-  document.getElementById("bookShelves").innerHTML = "";
+  for(i = 0; i < myLibrary.length; i++) {
+    let author = document.getElementById("author").value;
+    let title = document.getElementById("title").value;
+    let pages = document.getElementById("pages").value;
+    let read = document.getElementById("read").value;
 
-  for (let i = 0; i < myLibrary.length; i++) {
-    let cardElement = document.createElement("div");
-    let imageContainer = document.createElement("div");
-    let infoContainer = document.createElement("div");
-    let image = document.createElement("img");
-    let author = document.createElement("h3");
-		let title = document.createElement("h4");
-		let pages = document.createElement("h5");
-    let read = document.createElement("h5");
-    let btnRead = document.createElement("button");
-    let btnDelete = document.createElement("button");
-
-		cardElement.className = "card";
-    imageContainer.className = "img-card";
-    infoContainer.className = "info-card";
-    image.className = "image";
-    author.className = "author";
-		title.className = "title";
-		pages.className = "pages";
-    read.className = "read";
-    btnRead.className = "btn"
-    btnDelete.className = "btn"
+    author.innerHTML = author;
+    title.innerHTML = title;
+    pages.innerHTML = pages;
+    read.innerHTML = read;
+    
 
     image.src = "./assets/img/library_of_alexandria.jpeg"
     image.setAttribute("alt", "Image from assets")
-		 
   }
 }
 

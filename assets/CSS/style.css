@@ -24,3 +24,12 @@ input {
   border-radius: 5px;
   border: 2px solid;
 }
+
+.card {
+  border: 2px solid;
+  border-radius: 12px;
+}
+
+ul li {
+  list-style-type: none;
+}
