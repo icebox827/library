@@ -42,7 +42,7 @@ function displayBook() {
     const author = document.createElement("div");
     const title = document.createElement("div");
     const pages = document.createElement("div");
-    const read = document.createElement("div");
+    const read = document.createElement("button");
 
     card.className = "card"
     author.className = "card-author"
@@ -62,10 +62,7 @@ function displayBook() {
     title.innerHTML = myLibrary[i].title;
     pages.innerHTML = myLibrary[i].pages;
     read.innerHTML = myLibrary[i].read;
-    
-
    
-    
     // image.src = "./assets/img/library_of_alexandria.jpeg"
     // image.setAttribute("alt", "Image from assets")
   }

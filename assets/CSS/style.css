@@ -47,3 +47,21 @@ input {
   border-bottom: blue 2px solid;
   background-color: cornsilk;
 }
+
+.card-read {
+  color: blanchedalmond;
+}
+
+#card-container a {
+  text-decoration: none;
+}
+
+button {
+  width: 45%;
+  background-color: blue;
+  border: none;
+}
+
+button:hover {
+  background: rgb(122, 228, 255);
+}
