@@ -12,47 +12,48 @@ function Book(title, author, pages, read = false) {
 
 function createNewBook(){
   
-  let myLibrary = [{"author":"Gustavo","title":"My book","pages":"994","read":false}, 
-  {"author":"Denis","title":"His book","pages":"123","read":false}]
-  
+  let myLibrary=[]
+  const book1 = new Book("My book","Gustavo", 994);
+  const book2 = new Book("His book","Denis", 123);
+     myLibrary.push(book1);
+     myLibrary.push(book2);
   let form = document.getElementById('input_book');
-  let bookAuthor = form.elements[0].value;
-  let bookTitle = form.elements[1].value;
+  let bookAuthor = form.elements[1].value;
+  let bookTitle = form.elements[0].value;
   let bookPages = form.elements[2].value;
 
-  const book = new Book(bookAuthor, bookTitle, bookPages)
+  const book3 = new Book(bookAuthor, bookTitle, bookPages)
 
-  myLibrary.push(book)
-  // console.log(JSON.stringify(myLibrary))
-  // text = document.createElement("p")
+  myLibrary.push(book3)
+  console.log(JSON.stringify(myLibrary))
+  text = document.createElement("p")
   // text.setAttribute("id", "storage")
   // text.innerHTML = JSON.stringify(myLibrary)
-  // document.body.appendChild(text)
+  document.body.appendChild(text)
+  return myLibrary
 }
 
-function displayBook(myLibrary) {
-  document.getElementById("card-container").innerHTML = "";
 
-	for(let i = 0; i < myLibrary.length; i++) {
-    let card = document.createElement("div");
-    let author = document.createElement("div");
-    let title = document.createElement("div");
-    let pages = document.createElement("div");
-    card.className = "card"
-		author.className = "author";
-    title.className = "title";
-    pages.className = "pages";
+function displayBook() {
+  let myLibrary = createNewBook()
+  console.log(myLibrary)
+  for(i = 0; i < myLibrary.length; i++) {
+    
+    const author = document.getElementById("author");
+    const title = document.getElementById("title");
+    const pages = document.getElementById("pages");
+    const read = document.getElementById("read");
 
-    card.innerHTML = myLibrary[i].Value;
-		author.innerHTML = myLibrary[i].Value;
-    title.innerHTML = myLibrary[i].Value;
-    pages.innerHTML = myLibrary[i].Value;
-		card.appendChild(author);
-		card.appendChild(title);
-    card.appendChild(pages);
+    
+    author.innerHTML = myLibrary[i].author;
+    title.innerHTML = myLibrary[i].title;
+    pages.innerHTML = myLibrary[i].pages;
+    read.innerHTML = myLibrary[i].read;
+    
 
-		document.getElementById("myLibrary").appendChild(card);
-	}
+    // image.src = "./assets/img/library_of_alexandria.jpeg"
+    // image.setAttribute("alt", "Image from assets")
+  }
 }
 
 function changeStatus(book){

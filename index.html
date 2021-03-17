@@ -21,12 +21,12 @@
           <h2>Add book to library</h2>
           <form id = "input_book" action="/index" method="post">
             <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author" value=""><br>
+            <input type="text" id="inAuthor" name="author" value=""><br>
             <label for="title">Title</label><br>
-            <input type="text" id="title" name="title" value=""><br><br>
+            <input type="text" id="inTitle" name="title" value=""><br><br>
             <label for="pages">number of pages</label><br>
-            <input type="number" id="pages" name="pages" value=""><br><br>
-            <input type="button" id="submit" onclick="createNewBook()" value="Submit" class="btn btn-primary">
+            <input type="number" id="inPages" name="pages" value=""><br><br>
+            <input type="button" id="submit" onclick="displayBook()" value="Submit" class="btn btn-primary">
           </form> 
         </section>
       </div>
