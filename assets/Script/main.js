@@ -38,19 +38,33 @@ function displayBook() {
   let myLibrary = createNewBook()
   console.log(myLibrary)
   for(i = 0; i < myLibrary.length; i++) {
-    
-    const author = document.getElementById("author");
-    const title = document.getElementById("title");
-    const pages = document.getElementById("pages");
-    const read = document.getElementById("read");
+    const card = document.createElement("card");
+    const author = document.createElement("div");
+    const title = document.createElement("div");
+    const pages = document.createElement("div");
+    const read = document.createElement("div");
 
-    
+    card.className = "card"
+    author.className = "card-author"
+    title.className = "card-title"
+    pages.className = "card-pages"
+    read.className = "card-read"
+
+    card.setAttribute("id", `card${i} `)
+
+    document.getElementById("card-container").appendChild(card);
+    document.getElementById(`card${i} `).appendChild(author);
+    document.getElementById(`card${i} `).appendChild(title);
+    document.getElementById(`card${i} `).appendChild(pages);
+    document.getElementById(`card${i} `).appendChild(read);
+
     author.innerHTML = myLibrary[i].author;
     title.innerHTML = myLibrary[i].title;
     pages.innerHTML = myLibrary[i].pages;
     read.innerHTML = myLibrary[i].read;
     
 
+   
     
     // image.src = "./assets/img/library_of_alexandria.jpeg"
     // image.setAttribute("alt", "Image from assets")

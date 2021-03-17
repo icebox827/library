@@ -25,11 +25,25 @@ input {
   border: 2px solid;
 }
 
-table { border-collapse: collapse; }
-
-table tr td {
-  border: 1px solid #000;
-  padding: 10px;
+.card {
+  width: 17rem;
+  margin: 5px;
 }
 
-table tr:nth-child(odd) { background: #87aff8; }
+.card-author {
+  background-color: blue;
+  color: blanchedalmond;
+  font-size: larger;
+  border-radius: 3px;
+}
+
+.card-title {
+  font-size: large;
+  border-bottom: blue 2px solid;
+  background-color: cornsilk;
+}
+
+.card-pages {
+  border-bottom: blue 2px solid;
+  background-color: cornsilk;
+}
