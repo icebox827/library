@@ -1,4 +1,4 @@
-import Book, { storageMyLibrary, remove, reloadPage } from './function.js';
+import Book, { storageMyLibrary, remove, reloadPage } from './function';
 
 const btn = document.getElementById('submit_btn');
 
