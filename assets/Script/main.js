@@ -1,7 +1,7 @@
 const btn = document.getElementById('submit_btn');
 
 
-function Book(title, author, pages, read = 'Not read') {
+function Book(title, author, pages, read) {
   this.author = author;
   this.title = title;
   this.pages = pages;
@@ -17,6 +17,10 @@ function reloadPage() {
 }
 
 btn.addEventListener('click', () => {
+  addBookToLibrary()
+})
+
+function addBookToLibrary(){
   let myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
 
   if (myLibrary === null) {
@@ -24,17 +28,17 @@ btn.addEventListener('click', () => {
   }
 
   const form = document.getElementById('input_book');
-  const bookAuthor = form.elements[1].value;
   const bookTitle = form.elements[0].value;
+  const bookAuthor = form.elements[1].value;
   const bookPages = form.elements[2].value;
-
-  const book3 = new Book(bookAuthor, bookTitle, bookPages);
+  const bookRead = form.elements[3].value;
+  const book3 = new Book(bookAuthor, bookTitle, bookPages, bookRead);
 
   myLibrary.push(book3);
 
   storageMyLibrary(myLibrary);
   reloadPage();
-});
+};
 
 
 function remove(id) {
