@@ -1,20 +1,6 @@
+import Book, {storageMyLibrary, remove, reloadPage} from './function.js'
 const btn = document.getElementById('submit_btn');
 
-
-function Book(title, author, pages, read) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.read = read;
-}
-
-function storageMyLibrary(myLibrary) {
-  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-}
-
-function reloadPage() {
-  window.location.reload();
-}
 
 btn.addEventListener('click', () => {
   addBookToLibrary()
@@ -39,15 +25,6 @@ function addBookToLibrary(){
   storageMyLibrary(myLibrary);
   reloadPage();
 };
-
-
-function remove(id) {
-  id = id.slice(6);
-  const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
-  myLibrary.splice(id, 1);
-  storageMyLibrary(myLibrary);
-  reloadPage();
-}
 
 window.addEventListener('load', () => {
   const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
@@ -74,6 +51,7 @@ window.addEventListener('load', () => {
 
       removeButton.onclick = function toRemove() {
         remove(this.id);
+        reloadPage();
       };
 
       card.className = 'card';
