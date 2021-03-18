@@ -4,7 +4,7 @@
 
 This project is a library where the user can add book to his/her collection and mark them as read or not read.
 
-![SCREENSHOT](app_screeshot.png)
+![SCREENSHOT](app_screenshot.png)
 
 
 ## 🔨 Tested with
