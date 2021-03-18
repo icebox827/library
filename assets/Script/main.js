@@ -1,12 +1,9 @@
-import Book, {storageMyLibrary, remove, reloadPage} from './function.js'
+import Book, { storageMyLibrary, remove, reloadPage } from './function';
+
 const btn = document.getElementById('submit_btn');
 
 
-btn.addEventListener('click', () => {
-  addBookToLibrary()
-})
-
-function addBookToLibrary(){
+function addBookToLibrary() {
   let myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
 
   if (myLibrary === null) {
@@ -24,7 +21,11 @@ function addBookToLibrary(){
 
   storageMyLibrary(myLibrary);
   reloadPage();
-};
+}
+btn.addEventListener('click', () => {
+  addBookToLibrary();
+});
+
 
 window.addEventListener('load', () => {
   const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
