@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: larger;
+  font-weight: 900;
+  color: blue;
+}
+
+h2 {
+  text-align: center;
+  font-size: large;
+  font-weight: 700;
+}
+
+input {
+  border-radius: 5px;
+  border: 2px solid;
+}
+
+.card {
+  width: 17rem;
+  margin: 5px;
+}
+
+.card-author {
+  background-color: blue;
+  color: blanchedalmond;
+  font-size: larger;
+  border-radius: 3px;
+}
+
+.card-title {
+  font-size: large;
+  border-bottom: blue 2px solid;
+  background-color: cornsilk;
+}
+
+.card-pages {
+  border-bottom: blue 2px solid;
+  background-color: cornsilk;
+}
+
+.card-read {
+  color: blanchedalmond;
+  background-color: rgb(92, 104, 175);
+  align-self: center;
+}
+
+#card-container a {
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  background-color: red;
+  border: none;
+  color: blanchedalmond;
+  margin: 5px;
+  align-self: center;
+}
+
+button:hover {
+  background: rgb(2, 90, 53);
+}
