@@ -56,10 +56,10 @@ function addBookToLibrary() {
   const book = new Book(bookAuthor, bookTitle, bookPages, bookRead);
   validate(book);
   if (validate(book) === true) {
-  myLibrary.push(book);
+    myLibrary.push(book);
 
-  storageMyLibrary(myLibrary);
-  reloadPage();
+    storageMyLibrary(myLibrary);
+    reloadPage();
   }
 }
 btn.addEventListener('click', () => {
