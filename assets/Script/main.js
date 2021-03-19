@@ -1,7 +1,45 @@
-import Book, { storageMyLibrary, remove, reloadPage } from './function';
+import Book, { storageMyLibrary, remove, reloadPage } from './function.js';
 
 const btn = document.getElementById('submit_btn');
 
+function validate(book) {
+  let validation = true;
+  if (book.author === '') {
+    const author = document.getElementById('authormsj');
+    author.innerHTML = "Author can't be blank";
+    author.style.color = 'Red';
+
+    validation = false;
+  } else {
+    const author = document.getElementById('authormsj');
+    author.innerHTML = '';
+  }
+
+  if (book.title === '') {
+    const title = document.getElementById('titlemsj');
+    title.innerHTML = "Title can't be blank";
+    title.style.color = 'Red';
+
+    validation = false;
+  } else {
+    const title = document.getElementById('titlemsj');
+    title.innerHTML = '';
+  }
+
+  if (book.pages <= 0) {
+    const title = document.getElementById('pagesmsj');
+    title.innerHTML = 'Create a book with more than 0 pages';
+    title.style.color = 'Red';
+
+    validation = false;
+  } else {
+    const title = document.getElementById('titlemsj');
+    title.innerHTML = '';
+  }
+
+
+  return validation;
+}
 
 function addBookToLibrary() {
   let myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
@@ -15,12 +53,14 @@ function addBookToLibrary() {
   const bookAuthor = form.elements[1].value;
   const bookPages = form.elements[2].value;
   const bookRead = form.elements[3].value;
-  const book3 = new Book(bookAuthor, bookTitle, bookPages, bookRead);
-
-  myLibrary.push(book3);
+  const book = new Book(bookAuthor, bookTitle, bookPages, bookRead);
+  validate(book);
+  if (validate(book) === true) {
+  myLibrary.push(book);
 
   storageMyLibrary(myLibrary);
   reloadPage();
+  }
 }
 btn.addEventListener('click', () => {
   addBookToLibrary();
