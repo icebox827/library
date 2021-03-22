@@ -43,5 +43,10 @@ const addBook = (book) => {
 const displayBook = (book) => {
   for(i = 0; i < myLibrary.length; i += 1){
     const card = document.createElement('card');
+    const author = document.createElement('div');
+    const title = document.createElement('div');
+    const pages = document.createElement('div');
+    const read = document.createElement('button');
+    const removeButton = document.createElement('button');
   }
 }
