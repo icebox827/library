@@ -20,7 +20,7 @@
         <div class="col-sm-12 col-md-3 col-lg-3">
           <h2>Add new book</h2>
           <h4>Please fill the form</h4>
-          <form action="" id="form">
+          <form action="/index" id="form">
             <div class="mb-3">
               <label for="author" class="form-label">Author</label>
               <input type="text" class="form-control" id="author" placeholder="Name of the author">
@@ -33,10 +33,10 @@
               <label for="pages" class="form-label">Number of pages</label>
               <input type="text" class="form-control" id="pages" placeholder="Number of pages">
             </div>
-            <select class="form-select" aria-label="Book status">
+            <select class="form-select" aria-label="Book status" id="read">
               <option selected>Book status</option>
-              <option value="1" id="yes">Read!</option>
-              <option value="2" id="no">Not read ye!t</option>
+              <option value="read" id="read">Read!</option>
+              <option value="Not read" id="notRead">Not read ye!t</option>
             </select><br>
             <button type="button" class="btn btn-primary">Add new book</button>
           </form>
