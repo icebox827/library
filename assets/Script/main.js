@@ -25,6 +25,21 @@ class Book {
   }
 }
 
-function addBook(book) {
+const addBook = (book) => {
+  const author = document.getElementById('author').value
+  const title = document.getElementById('title').value
+  const pages = document.getElementById('pages').value
+  const read = (function() {
+    if (document.getElementById('read!').onselect) return document.getElementById('yes').value;
+    return document.getElementById('no').value
+  }());
 
+  const book = new Book(author, title, pages, read);
+  myLibrary.push(book)
+  document.getElementById('form').reset();
+  displayBook(book);
+}
+
+const displayBook = (book) => {
+  
 }
