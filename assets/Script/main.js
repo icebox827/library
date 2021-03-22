@@ -42,6 +42,6 @@ const addBook = (book) => {
 
 const displayBook = (book) => {
   for(i = 0; i < myLibrary.length; i += 1){
-    const author = document.createElement('author').value
+    const card = document.createElement('card');
   }
 }
