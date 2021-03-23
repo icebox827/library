@@ -20,11 +20,11 @@ class Book {
 
 const addBook = () => {
   let myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
-  const form = document.getElementById('form').value
-  const author = document.getElementById('author').value;
-  const title = document.getElementById('title').value;
-  const pages = document.getElementById('pages').value;
-  const read = document.getElementById('read').value;
+  const form = document.getElementById('form');
+  const author = form.elements[0].value;
+  const title = form.elements[1].value;
+  const pages = form.elements[2].value;
+  const read = form.elements[3].value;
 
   const book = new Book(author, title, pages, read);
   myLibrary.push(book);
