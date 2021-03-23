@@ -1,4 +1,5 @@
 const myLibrary = [];
+const btn = document.getElementById('button');
 
 class Book {
   constructor (author, title, pages, read) {
@@ -9,17 +10,17 @@ class Book {
   }
 }
 
-const addBook = (book) => {
+const addBook = () => {
   const form = document.getElementById('form').value
-  const author = document.getElementById('author').value;
-  const title = document.getElementById('title').value;
-  const pages = document.getElementById('pages').value;
+  const author = form.elements[0].value;
+  const title = form.elements[1].value;
+  const pages = form.elements[2].value;
   const read = (function() {
     if (document.getElementById('read').onselect) return document.getElementById('read').value;
     return document.getElementById('read').value
   }());
 
-  const newBook = new Book(author, title, pages, read);
+  const book = new Book(author, title, pages, read);
   myLibrary.push(book);
   displayBook(book);
 }
@@ -28,9 +29,9 @@ const displayBook = (book) => {
   for(i = 0; i < myLibrary.length; i += 1){
     if (myLibrary[i].author !== '') {
       const card = document.createElement('card');
-      const author = form.elements[0].value;
-      const title = form.elements[1].value;
-      const pages = form.elements[2].value;
+      const author = document.createElement('div');
+      const title = document.createElement('div');
+      const pages = document.createElement('div');
       const read = document.createElement('button');
       const removeButton = document.createElement('button');
 
