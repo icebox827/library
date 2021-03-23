@@ -18,14 +18,13 @@ const addBook = () => {
   const read = document.getElementById('read').value;
 
   const book = new Book(author, title, pages, read);
-
+  myLibrary.push(book);
+  
   btn.addEventListener('click', () => {
     addBook();
   });
 
-  myLibrary.push(book);
-  console.log(book)
-  // displayBook(book);
+  displayBook(book);
 }
 
 const displayBook = (book) => {
