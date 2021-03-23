@@ -1,6 +1,10 @@
 const myLibrary = [];
 const btn = document.getElementById('submit_btn');
 
+function storageMyLibrary {
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
 class Book {
   constructor (author, title, pages, read) {
     this.author = author;
@@ -11,6 +15,7 @@ class Book {
 }
 
 const addBook = () => {
+  
   const form = document.getElementById('form').value
   const author = document.getElementById('author').value;
   const title = document.getElementById('title').value;
@@ -79,3 +84,4 @@ const displayBook = (book) => {
     }
   }
 }
+
