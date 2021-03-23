@@ -5,6 +5,10 @@ function storageMyLibrary() {
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
 
+function reloadPage() {
+  window.location.reload();
+}
+
 class Book {
   constructor (author, title, pages, read) {
     this.author = author;
