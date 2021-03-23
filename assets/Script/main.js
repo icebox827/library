@@ -37,7 +37,6 @@ const addBook = () => {
 }
 
 window.addEventListener('load', () => {
-  const displayBook = (book) => {
     let myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
     for(i = 0; i < myLibrary.length; i += 1){
       if (myLibrary[i].author !== '') {
@@ -89,7 +88,6 @@ window.addEventListener('load', () => {
         removeButton.innerHTML = 'Remove';
       }
     }
-  }
 });
 
 function remove(id) {
