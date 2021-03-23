@@ -7,36 +7,20 @@ class Book {
     this.pages = pages;
     this.read = read;
   }
-
-  setAuthor(author) {
-    this.author = author;
-  }
-
-  setAuthor(title) {
-    this.title = title;
-  }
-
-  setAuthor(pages) {
-    this.pages = pages;
-  }
-
-  setAuthor(read) {
-    this.read = read;
-  }
 }
 
 const addBook = (book) => {
-  const author = document.getElementById('author').value
-  const title = document.getElementById('title').value
-  const pages = document.getElementById('pages').value
+  const formdata = new FormData(document.querySelector('form'))
+  const author = document.getElementById('author').value;
+  const title = document.getElementById('title').value;
+  const pages = document.getElementById('pages').value;
   const read = (function() {
     if (document.getElementById('read').onselect) return document.getElementById('read').value;
     return document.getElementById('read').value
   }());
 
-  const book1 = new Book(author, title, pages, read);
-  myLibrary.push(book)
-  document.getElementById('form').reset();
+  const newBook = new Book(author, title, pages, read);
+  myLibrary.push(book);
   displayBook(book);
 }
 
@@ -88,7 +72,6 @@ const displayBook = (book) => {
       title.innerHTML = myLibrary[i].title;
       pages.innerHTML = myLibrary[i].pages;
       read.innerHTML = myLibrary[i].read;
-
       removeButton.innerHTML = 'Remove';
     }
   }
