@@ -92,4 +92,9 @@ window.addEventListener('load', () => {
   }
 });
 
-
+function remove(id) {
+  id = id.slice(6);
+  const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+  myLibrary.splice(id, 1);
+  storageMyLibrary(myLibrary);
+}
