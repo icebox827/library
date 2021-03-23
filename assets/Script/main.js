@@ -1,5 +1,5 @@
 const myLibrary = [];
-const btn = document.getElementById('button');
+const btn = document.getElementById('submit_btn');
 
 class Book {
   constructor (author, title, pages, read) {
@@ -12,17 +12,20 @@ class Book {
 
 const addBook = () => {
   const form = document.getElementById('form').value
-  const author = form.elements[0].value;
-  const title = form.elements[1].value;
-  const pages = form.elements[2].value;
-  const read = (function() {
-    if (document.getElementById('read').onselect) return document.getElementById('read').value;
-    return document.getElementById('read').value
-  }());
+  const author = document.getElementById('author').value;
+  const title = document.getElementById('title').value;
+  const pages = document.getElementById('pages').value;
+  const read = document.getElementById('read').value;
 
   const book = new Book(author, title, pages, read);
+
+  btn.addEventListener('click', () => {
+    addBook();
+  });
+
   myLibrary.push(book);
-  displayBook(book);
+  console.log(book)
+  // displayBook(book);
 }
 
 const displayBook = (book) => {
