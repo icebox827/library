@@ -10,7 +10,7 @@ class Book {
 }
 
 const addBook = (book) => {
-  const formdata = new FormData(document.querySelector('form'))
+  const form = document.getElementById('form').value
   const author = document.getElementById('author').value;
   const title = document.getElementById('title').value;
   const pages = document.getElementById('pages').value;
