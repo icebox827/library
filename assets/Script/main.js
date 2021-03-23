@@ -28,9 +28,9 @@ const displayBook = (book) => {
   for(i = 0; i < myLibrary.length; i += 1){
     if (myLibrary[i].author !== '') {
       const card = document.createElement('card');
-      const author = document.createElement('div');
-      const title = document.createElement('div');
-      const pages = document.createElement('div');
+      const author = form.elements[0].value;
+      const title = form.elements[1].value;
+      const pages = form.elements[2].value;
       const read = document.createElement('button');
       const removeButton = document.createElement('button');
 
